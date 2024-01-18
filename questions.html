@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Fira+Sans:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <title>Question Paper</title>
+
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: 'Bona Nova', serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: black;
+      color: white;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+        rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .actions {
+      font-size: 15px;
+    }
+
+    .body-content {
+      height: 100%;
+      display: flex;
+    }
+
+    .containerA {
+      background: #0074d9;
+      height: 100%;
+      width: 30%;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .page-title {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .user-welcome {
+      font-size: 20px;
+      margin: 10px 0;
+      font-weight: bold;
+      padding: 10px 0;
+    }
+
+    .cta {
+      position: absolute;
+      bottom: 30px;
+      text-decoration: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      border: 1px solid white;
+    }
+
+    .cta:hover {
+      background: white;
+      color: #0074d9;
+    }
+
+    .containerB {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 30px;
+      width: 70%;
+      height: 400px;
+    }
+
+    label {
+      font-family: 'Fira Sans', sans-serif;
+      font-size: 20px;
+      display: block;
+      margin: 20px 0;
+    }
+
+    input[text] {
+      display: block;
+    }
+
+    input[type='text'] {
+      height: 35px;
+      width: 300px;
+      font-size: 15px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background: #0074d9;
+      margin: 10px 0;
+      border: none;
+      color: white;
+      font-size: 15px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: #2784d6;
+    }
+
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .updates {
+      position: absolute;
+      right: 20px;
+    }
+
+    .content {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .option-heading {
+      font-size: 15px;
+      padding: 20px 0;
+    }
+
+    .exams {
+      width: 300px;
+      height: 40px;
+      padding: 0 10px;
+      font-size: 15px;
+    }
+
+    .add-btn {
+      padding: 12px 20px;
+      background: #0074d9;
+      margin: 10px 0;
+      border: none;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .add-btn:hover {
+      background-color: #2784d6;
+    }
+
+    .pending-table {
+      display: flex;
+      flex-direction: column;
+      padding: 40px 0;
+    }
+
+    .pt-header,
+    .pt-body {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding: 10px 0;
+    }
+
+    .pt-header {
+      font-weight: bold;
+    }
+
+    .pt-data {
+      font-size: 18px;
+    }
+
+    .exam-btn {
+      padding: 8px 15px;
+      background: #0074d9;
+      border: none;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .exam-btn:hover {
+      background-color: #2784d6;
+    }
+
+    .qb-header {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding: 25px 0;
+      font-weight: bold;
+    }
+
+    .qb-body {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding: 15px 0;
+      flex-direction: column;
+    }
+
+    .qb-data {
+      font-size: 18px;
+    }
+
+    .question-box {
+      position: relative;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      padding: 20px 40px;
+
+    }
+
+    .scam{
+      position: absolute;
+      background-color: black;
+      width: 50%;
+      height: 100%;
+    }
+
+    .radio {
+      display: flex;
+      width: 30%;
+      justify-content: space-around;
+    }
+
+    #questions {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .question{
+      width: 100%;
+      margin: 0px 0px 0px 10px;
+    
+    }
+
+    .prev,
+    .next {
+      position: relative;
+      transform: translateY(-50%);
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 15px;
+      background-color: #2784d6;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .pagination-button {
+      position: absolute;
+      right: 10px;
+      bottom: 0;
+    }
+
+    #countdown {
+      display: flex;
+      justify-content: center;
+    }
+
+    #demo {
+      text-align: center;
+      font-size: 60px;
+      margin-top: 0px;
+    }
+
+    .container12 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .submit{
+      display: none;
+      position: absolute;
+      transform: translateY(-50%);
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 15px;
+      background-color: #2784d6;
+      color: #fff;
+      cursor: pointer;
+      left: 62%;
+      bottom: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="title">FC Exam Portal</div>
+      <div class="actions">About</div>
+    </div>
+    <div class="body-content">
+      <div class="containerA">
+        <div class="page-title">Java</div>
+        <div class="page-title">Exam Code - 101</div>
+      </div>
+      <div class="containerB">
+        <p id="demo"></p>
+        <div class="question-box">
+          <div class="qb-header">
+            <div class="qb-head">Question Paper</div>
+          </div>
+          <div id="questions">
+          <form id="test">
+             <div class="question" id="question">
+              
+             </div>
+          </form>
+            </div>
+          <div class="pagination-button">
+            <button class="prev" onclick="prevQuestion()">Previous</button>
+            <button class="next" onclick="nextQuestion()">Next</button>
+          </div>
+        </div>
+        <button class="submit" id="submit" onclick="prevQuestion()">Submit</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+<script>
+   let prevBtn = document.querySelector('.prev');
+   let nextBtn = document.querySelector('.next');
+   let quesNo = 0;
+   var questions = [
+      {
+      question:"Your name", 
+      a: "x",
+      b: 'y',
+      c: 'z',
+      d:'a'
+      },
+      {
+      question:"Your Age", 
+      a: "10",
+      b: '20',
+      c: '30',
+      d: '60+'
+      },
+      {
+      question:"Your School Grades", 
+      a: "10",
+      b: '20',
+      c: '30',
+      d: '60+'
+      },
+      {
+      question:"Your Life Grades", 
+      a: "0",
+      b: '0',
+      c: '0',
+      d: '-1'
+      },
+      {
+      question:"Your name", 
+      a: "x",
+      b: 'y',
+      c: 'z',
+      d:'a'
+      },
+      {
+      question:"Your Age", 
+      a: "10",
+      b: '20',
+      c: '30',
+      d: '60+'
+      },
+      {
+      question:"Your School Grades", 
+      a: "10",
+      b: '20',
+      c: '30',
+      d: '60+'
+      },
+      {
+      question:"Your Life Grades", 
+      a: "0",
+      b: '0',
+      c: '0',
+      d: '-1'
+      },{
+      question:"Your name", 
+      a: "x",
+      b: 'y',
+      c: 'z',
+      d:'a'
+      },
+      {
+      question:"Your Age", 
+      a: "10",
+      b: '20',
+      c: '30',
+      d: '60+'
+      }
+   ];
+  //  let answers = [];
+   let ans = "";
+
+   function render(quesNo) {
+      return (
+         document.getElementById('question').innerHTML =
+         `<h3>Q${quesNo + 1}: ${questions[quesNo].question}</h3>
+          <label>
+            <input 
+            ${answers[quesNo] == questions[quesNo].a ? 'checked' : ''}
+               type="radio" 
+               name="${questions[quesNo].question}" 
+               value="${questions[quesNo].a}" 
+            />
+            A. ${questions[quesNo].a}
+          </label>
+          <label>
+            <input 
+            ${answers[quesNo] == questions[quesNo].b ? 'checked' : ''}
+               type="radio" 
+               name="${questions[quesNo].question}" 
+               value="${questions[quesNo].b}" 
+            />
+            B. ${questions[quesNo].b}
+          </label>
+          <label>
+            <input 
+            ${answers[quesNo] == questions[quesNo].c ? 'checked' : ''}
+               type="radio" 
+               name="${questions[quesNo].question}" 
+               value="${questions[quesNo].c}" 
+            />
+            C. ${questions[quesNo].c} 
+          </label>
+          <label>
+            <input
+            ${answers[quesNo] == questions[quesNo].d ? 'checked' : ''} 
+               type="radio" 
+               name="${questions[quesNo].question}" 
+               value="${questions[quesNo].d}" 
+            />
+            D. ${questions[quesNo].d}
+          </label>`
+      );
+
+   }
+
+   render(quesNo)
+   var form = document.getElementById("test");
+   
+  //  function prevQuestion() {
+  //     render(--quesNo);
+  //  }
+
+  //  function nextQuestion() {
+  //     answers[quesNo] = form.elements[questions[quesNo].question].value;
+  //     if(quesNo == 9){
+  //       ans = ans.concat(form.elements[questions[quesNo].question].value);
+  //       document.getElementById('submit').style.display = 'block';
+  //     }else{
+  //       ans = ans.concat(form.elements[questions[quesNo].question].value + "$");  
+  //     }
+
+  //     if(quesNo == 8){
+  //       document.getElementById('submit').style.display = 'block';
+  //     }
+  //     render(++quesNo);
+  //  }
+
+  var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
+
+  var x = setInterval(function () {
+
+    var now = new Date().getTime();
+
+    var distance = countDownDate - now;
+
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
+
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+  }, 1000);
+
+</script>
+
+</html>

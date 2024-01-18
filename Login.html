@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>Login Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body {
+    font-family: 'Bona Nova', serif;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    height: 100vh;
+    position: relative;
+}
+.containerA {
+    display: flex;
+    background: black;
+    color: white;
+    font-weight: bold;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+.containerB {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+label {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 20px;
+    display: block;
+    margin: 20px 0;
+}
+input {
+    padding: 10px 40px;
+    display: block;
+}
+input[type="text"]
+{
+    font-size:15px;
+}
+.btn {
+    padding: 10px 20px;
+    background: #0074d9;
+    margin: 10px 0;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.cta {
+    display: block;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: light;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid white;
+    position: absolute;
+    bottom: 20px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="containerA">
+        <div class="message">
+            Employee
+            <br>
+            Login
+            <br>
+            Portal
+        </div>
+        <a href="Register.jsp" class="cta">Register</a>
+    </div>
+    <div class="containerB">
+        <form method="post" action="LoginController">
+            <label>Employee Id</label>
+            <input type="text" name="empId" required>
+            <label>Password</label>
+            <input type="password" name="empPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            <input type="submit" class="btn">
+        </form>
+    </div>
+</div>
+</body>
+</html>
